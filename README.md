@@ -10,6 +10,7 @@ Algorithm:
 
 // secret_key [] : array of bytes that represent the secret key. In our implementation,
 // we will assume a key of 24 bits, meaning this array is 3 bytes long
+
 // encrypted_input []: array of bytes that represent the encrypted message. In our
 // implementation, we will assume the input message is 32 bytes
 
