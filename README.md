@@ -8,17 +8,18 @@ Algorithm:
 
 // Input:
 
-// secret_key [] : array of bytes that represent the secret key. In our implementation,
+// secret_key [] : array of bytes that represent the secret key. In this implementation,
 // we will assume a key of 24 bits, meaning this array is 3 bytes long
 
 // encrypted_input []: array of bytes that represent the encrypted message. In our
-// implementation, we will assume the input message is 32 bytes
+implementation, we will assume the input message is 32 bytes
 
 // Output:
 
 // decrypted _output []: array of bytes that represent the decrypted result. This will
-// always be the same length as encrypted_input [].
-// initialize s array. You will build this in Task 1
+// always be the same length as encrypted_input [].                                                                                     
+// initialize s array. (Task 1)
+
 
 for i = 0 to 255 {
   s[i] = i;
