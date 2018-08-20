@@ -7,12 +7,14 @@ The secret key is set using the slider switches on the Altera FPGA.
 Algorithm:
 
 // Input:
+
 // secret_key [] : array of bytes that represent the secret key. In our implementation,
 // we will assume a key of 24 bits, meaning this array is 3 bytes long
 // encrypted_input []: array of bytes that represent the encrypted message. In our
 // implementation, we will assume the input message is 32 bytes
 
 // Output:
+
 // decrypted _output []: array of bytes that represent the decrypted result. This will
 // always be the same length as encrypted_input [].
 // initialize s array. You will build this in Task 1
