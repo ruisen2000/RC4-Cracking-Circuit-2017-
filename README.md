@@ -1,7 +1,7 @@
 Date: Spring 2017
 
 Authors:
-Greyson Wang
+Greyson Wang  
 Ryan Lui
 
 RC4 Cracking Circuit
