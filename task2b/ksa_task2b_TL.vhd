@@ -1,16 +1,3 @@
--- Filename: ksa_task2b.vhd
--- Author 1: Ryan Lui
--- Author 1 Student #: 301251951
--- Author 2: Greyson Wang
--- Author 2 Student #: 301249759
--- Group Number: 27
--- Lab Section
--- Lab: 6
--- Task Completed: All.
--- Date: 2017-03-14
--- Description: The top level entity for task 2b.  Requires ksa_task2a_modular and
--- ksa_task2b
-------------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -73,20 +60,18 @@ architecture rtl of ksa_task2b_TL is
 			sWrite: out std_logic); -- Write enable on s RAM module.
 	end component;
 
-	component ksa_task2b is
-		port(
-			clock : in  std_logic;  -- Clock pin
-			start: in std_logic; -- Start signal.
+	component ksa_part2b is
+		port(CLOCK_50 : in  std_logic;  -- Clock pin
+			start: in std_logic;		
+			q : in std_logic_vector(7 downto 0); -- q port 
+			eQ: in std_logic_vector(7 downto 0); -- ROM q port with encrypted input
 			done: out std_logic;
-			
-			sAddress: out std_logic_vector(7 downto 0);  -- Address port to working (S) RAM module
-			sData: out std_logic_vector(7 downto 0); -- Data port to working (S) RAM module
-			dData: out std_logic_vector(7 downto 0); -- Data port to decrypted (D) RAM module
-			sWrite, dWrite: out std_logic; -- Write enables to RAM modules
-			sQ: in std_logic_vector(7 downto 0); -- q port from RAM module
-			eAddress, dAddress: out std_logic_vector(4 downto 0); -- Address port to ROM and D RAM module.
-			eQ: in std_logic_vector(7 downto 0) -- ROM q port
-		);
+			wren, dWrite: out std_logic; -- Write enables to RAM modules, dWrite for RaM module for decrypted output
+			eAddress, dAddress: out std_logic_vector(4 downto 0); -- Address port to encrypted data ROM and decrupted output D RAM module.
+			address: out std_logic_vector(7 downto 0);  -- Address port to working (S) RAM module
+			data: out std_logic_vector(7 downto 0); -- Data port to working (S) RAM module
+			dData: out std_logic_vector(7 downto 0)); -- Data port to decrypted (D) RAM module
+			  
 	end component;
 
 	-- Enumerated type for the state variable.  You will likely be adding extra
@@ -161,14 +146,14 @@ architecture rtl of ksa_task2b_TL is
 			sQ => sQ
 		);
 		
-		decrypt_BLOCK: ksa_task2b port map (
-			clock => CLOCK_50,
+		decrypt_BLOCK: ksa_part2b port map (
+			CLOCK_50 => CLOCK_50,
 			start => decrypt_start,
 			done => decrypt_done,
-			sAddress => decrypt_sAddress,
-			sData => decrypt_sData,
-			sQ => sQ,
-			sWrite => decrypt_sWrite,
+			address => decrypt_sAddress,
+			data => decrypt_sData,
+			q => sQ,
+			wren => decrypt_sWrite,
 			dAddress => dAddress,
 			dData => dData,
 			dWrite => dWrite,

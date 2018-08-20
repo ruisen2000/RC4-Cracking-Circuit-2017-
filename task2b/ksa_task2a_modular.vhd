@@ -13,8 +13,8 @@
 -- 1. Ensure that this module as access to the RAM module.
 -- 2. Feed the 18 LSB for the key into the module, and keep it constant for the
 --    entire duration this module is running.
--- 3. Raise the start signal high, then lower it after 1 clock cycle.
--- 4. The key and working RAM are configured when the done signal is raised.
+-- 2. Raise the start signal high, then lower it after 1 clock cycle.
+-- 3. The key and working RAM are configured when the done signal is raised.
 ------------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
