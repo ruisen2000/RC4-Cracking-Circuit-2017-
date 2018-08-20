@@ -5,7 +5,6 @@ use ieee.numeric_std.all;
 -- Entity part of the description.  Describes inputs and outputs
 -- includes both task 1 and task 2a
 
--- Greyson
 
 entity ksa_part2b is
   port(CLOCK_50 : in  std_logic;  -- Clock pin

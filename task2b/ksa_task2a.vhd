@@ -1,11 +1,10 @@
 -- Filename: ksa_task2b.vhd
 -- Author 1: Ryan Lui
--- Author 1 Student #: 301251951
+
 -- Author 2: Greyson Wang
--- Author 2 Student #: 301249759
+
 -- Group Number: 27
--- Lab Section
--- Lab: 6
+
 -- Task Completed: All.
 -- Date: 2017-03-14
 -- Description: Task 2a, standalone
