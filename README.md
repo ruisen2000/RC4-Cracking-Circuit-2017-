@@ -21,23 +21,23 @@ implementation, we will assume the input message is 32 bytes
 // initialize s array. (Task 1)
 
 
-for i = 0 to 255 {
-  s[i] = i;
+for i = 0 to 255 {  
+  s[i] = i;  
 }
 
-// shuffle the array based on the secret key. You will build this in Task 2
-j = 0
-for i = 0 to 255 {
-  j = (j + s[i] + secret_key[i mod keylength] ) mod 256 //keylength is 3 in our impl.
-  swap values of s[i] and s[j]
-}
+// shuffle the array based on the secret key. You will build this in Task 2  
+j = 0  
+for i = 0 to 255 {  
+  j = (j + s[i] + secret_key[i mod keylength] ) mod 256 //keylength is 3 in our impl.  
+  swap values of s[i] and s[j]  
+}  
 
-// compute one byte per character in the encrypted message. You will build this in Task 2
-i = 0, j=0
-for k = 0 to message_length-1 { // message_length is 32 in our implementation
-  i = (i+1) mod 256
-  j = (j+s[i]) mod 256
-  swap values of s[i] and s[j]
-  f = s[ (s[i]+s[j]) mod 256 ]
-  decrypted_output[k] = f xor encrypted_input[k] // 8 bit wide XOR function
+// compute one byte per character in the encrypted message. You will build this in Task 2  
+i = 0, j=0  
+for k = 0 to message_length-1 { // message_length is 32 in our implementation  
+  i = (i+1) mod 256  
+  j = (j+s[i]) mod 256  
+  swap values of s[i] and s[j]  
+  f = s[ (s[i]+s[j]) mod 256 ]  
+  decrypted_output[k] = f xor encrypted_input[k] // 8 bit wide XOR function  
 }
